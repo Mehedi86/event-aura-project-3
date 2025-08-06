@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 
 export default function Banner() {
   return (
-    <div className="relative w-full h-[800px]">
+    <div className="relative w-full h-[calc(100vh-100px)]">
       {/* Background image */}
       <Image
         src="/img/banner/banner.jpg"
@@ -62,7 +62,7 @@ export default function Banner() {
                 d="M12 2C8.13 2 5 5.13 5 9c0 4.418 7 13 7 13s7-8.582 7-13c0-3.87-3.13-7-7-7z"
               />
             </svg>
-            <span>San Francisco</span>
+            <span>Dhaka, Bangladesh</span>
             <button className="ml-2 underline text-sm">Change Location</button>
           </span>
         </div>

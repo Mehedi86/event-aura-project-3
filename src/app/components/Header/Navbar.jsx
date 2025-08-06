@@ -8,12 +8,12 @@ import { IoMdMail } from "react-icons/io";
 export default function Navbar() {
   const navItems = () => {
     return (
-      <ul className='flex gap-4 font-semibold'>
-        <li className='hover:text-orange-300 cursor-pointer'>Dashboard</li>
-        <li className='hover:text-orange-300 cursor-pointer'>Events</li>
-        <li className='hover:text-orange-300 cursor-pointer'>Search</li>
-        <li className='hover:text-orange-300 cursor-pointer'>Gallery</li>
-        <li className='hover:text-orange-300 cursor-pointer'>Contact</li>
+      <ul className='flex gap-4'>
+        <li className='hover:scale-110 transition duration-200 cursor-pointer'>Dashboard</li>
+        <li className='hover:scale-110 transition duration-200 cursor-pointer'>Events</li>
+        <li className='hover:scale-110 transition duration-200 cursor-pointer'>Search</li>
+        <li className='hover:scale-110 transition duration-200 cursor-pointer'>Gallery</li>
+        <li className='hover:scale-110 transition duration-200 cursor-pointer'>Contact</li>
       </ul>
     );
   };
