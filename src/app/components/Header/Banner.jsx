@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 
 export default function Banner() {
   return (
-    <div className="relative w-full h-screen">
+    <div className="relative w-full h-[800px]">
       {/* Background image */}
       <Image
         src="/img/banner/banner.jpg"
@@ -16,7 +16,7 @@ export default function Banner() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-orange-500 bg-opacity-20 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 opacity-20"></div>
 
       {/* Content */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white text-center px-4 pt-24">

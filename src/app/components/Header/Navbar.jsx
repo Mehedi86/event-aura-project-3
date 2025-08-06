@@ -35,7 +35,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Navbar */}
-      <div className='bg-amber-600 text-white py-3 shadow-md'>
+      <div className='text-white py-3 shadow-md'>
         <div className='w-11/12 lg:w-4/5 mx-auto flex justify-between items-center px-4'>
           <h1 className='text-3xl font-bold tracking-wide'>EventAura</h1>
           <div className='flex items-center gap-6'>
