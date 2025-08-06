@@ -40,9 +40,9 @@ export default function Navbar() {
           <h1 className='text-3xl font-bold tracking-wide'>EventAura</h1>
           <div className='flex items-center gap-6'>
             {navItems()}
-            <div className='flex items-center gap-2 px-4 py-1 rounded-full border border-white'>
+            <div className='flex items-center gap-6 px-4 py-1 rounded-full border border-white'>
               <span className='text-lg'>0</span>
-              <FaOpencart size={22} />
+              <FaOpencart size={24} />
             </div>
           </div>
         </div>

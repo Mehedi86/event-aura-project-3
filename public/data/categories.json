@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "SPORTS",
+    "bgColor": "from-green-400 to-green-800 opacity-60",
+    "img": "/img/categories/sports.jpg"
+  },
+  {
+    "id": 2,
+    "name": "ANNUAL PARTY",
+    "bgColor": "from-red-400 to-red-800 opacity-40",
+    "img": "/img/categories/annual.avif"
+  },
+  {
+    "id": 3,
+    "name": "PRODUCT LAUNCH",
+    "bgColor": "from-gray-400 to-gray-900 opacity-80",
+    "img": "/img/categories/productL.jpg"
+  },
+  {
+    "id": 4,
+    "name": "PRESENTATION",
+    "bgColor": "from-orange-400 to-orange-800 opacity-60",
+    "img": "/img/categories/presentation.jpg"
+  },
+  {
+    "id": 5,
+    "name": "SEMINAR",
+    "bgColor": "from-purple-400 to-indigo-700 opacity-60",
+    "img": "/img/categories/seminar.webp"
+  },
+  {
+    "id": 6,
+    "name": "WEDDING",
+    "bgColor": "from-pink-300 to-pink-600 opacity-60",
+    "img": "/img/categories/wedding.jpg"
+  }
+]
