@@ -36,7 +36,7 @@ export default function Navbar() {
 
       {/* Main Navbar */}
       <div className='text-white py-3 shadow-md'>
-        <div className='w-11/12 lg:w-4/5 mx-auto flex justify-between items-center px-4'>
+        <div className='w-11/12 lg:w-4/5 mx-auto flex justify-between items-center py-4 px-2 border-b-2 border-neutral-50'>
           <h1 className='text-3xl font-bold tracking-wide'>EventAura</h1>
           <div className='flex items-center gap-6'>
             {navItems()}
