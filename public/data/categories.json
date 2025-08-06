@@ -8,7 +8,7 @@
   {
     "id": 2,
     "name": "ANNUAL PARTY",
-    "bgColor": "from-red-400 to-red-800 opacity-40",
+    "bgColor": "from-pink-400 to-pink-900 opacity-80",
     "img": "/img/categories/annual.avif"
   },
   {
@@ -26,7 +26,7 @@
   {
     "id": 5,
     "name": "SEMINAR",
-    "bgColor": "from-purple-400 to-indigo-700 opacity-60",
+    "bgColor": "from-purple-400 to-purple-700 opacity-60",
     "img": "/img/categories/seminar.webp"
   },
   {

@@ -16,7 +16,7 @@ export default function EventCategory() {
         fetchCategories();
     }, [])
 
-    console.log(categories)
+    
     return (
         <div className='w-11/12 lg:w-4/5 mx-auto my-20'>
             <h1 className='text-2xl font-semibold pl-6 border-l-4 border-red-600 my-12'>Event Category</h1>
