@@ -6,7 +6,7 @@ import CountUp from 'react-countup';
 
 export default function Stats() {
     return (
-        <div className="relative w-full md:h-80 lg:h-96 overflow-hidden text-white">
+        <div className="relative w-full h-60 md:h-64 lg:h-72 overflow-hidden text-white">
             {/* Background image */}
             <Image
                 src="/img/stats/stats.jpg"
