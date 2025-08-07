@@ -27,7 +27,4 @@ body {
 
 .example {
   background-image: url('/img/banner/cele.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }

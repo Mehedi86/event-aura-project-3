@@ -87,7 +87,7 @@ export default function RecentVideos() {
 
       {/* CTA Box */}
       <div className="bg-orange-500 text-white px-6 py-10 rounded-md relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('/img/overlay.png')] bg-cover bg-center pointer-events-none" />
+        <div className="absolute inset-0 opacity-10 bg-[url('/img/banner/subbanner.jpg')] bg-cover bg-center pointer-events-none" />
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-2xl font-semibold mb-2">
