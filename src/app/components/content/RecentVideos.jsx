@@ -31,7 +31,7 @@ export default function RecentVideos() {
   const [playingIndex, setPlayingIndex] = useState(null);
 
   return (
-    <div className="w-11/12 lg:w-4/5 mx-auto py-10">
+    <div className="w-11/12 lg:w-4/5 mx-auto my-20">
       {/* Section Heading */}
       <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
         <span className="w-1 h-5 bg-orange-500 inline-block"></span>

@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.example {
+  background-image: url('/img/banner/cele.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

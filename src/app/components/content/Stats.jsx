@@ -3,10 +3,13 @@
 import Image from 'next/image';
 import React from 'react';
 import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
 
 export default function Stats() {
+    const { ref, inView } = useInView({ triggerOnce: true });
+
     return (
-        <div className="relative w-full h-60 md:h-64 lg:h-72 overflow-hidden text-white">
+        <div ref={ref} className="relative w-full h-60 md:h-64 lg:h-72 overflow-hidden text-white">
             {/* Background image */}
             <Image
                 src="/img/stats/stats.jpg"
@@ -25,7 +28,7 @@ export default function Stats() {
                     {/* Stat 1 */}
                     <div>
                         <h2 className="text-6xl font-bold">
-                            <CountUp end={598} duration={2} />
+                            {inView && <CountUp end={598} duration={2} />}
                         </h2>
                         <div className="my-6 w-20 h-0.5 bg-white mx-auto" />
                         <p className="uppercase text-lg tracking-widest">Events Organized</p>
@@ -34,7 +37,7 @@ export default function Stats() {
                     {/* Stat 2 */}
                     <div>
                         <h2 className="text-6xl font-bold">
-                            <CountUp end={16173} duration={2.5} separator="," />
+                            {inView && <CountUp end={16173} duration={2.5} separator="," />}
                         </h2>
                         <div className="my-6 w-20 h-0.5 bg-white mx-auto" />
                         <p className="uppercase text-lg tracking-widest">Active Users</p>
@@ -43,7 +46,7 @@ export default function Stats() {
                     {/* Stat 3 */}
                     <div>
                         <h2 className="text-6xl font-bold">
-                            <CountUp end={136874} duration={3} separator="," />
+                            {inView && <CountUp end={136874} duration={3} separator="," />}
                         </h2>
                         <div className="my-6 w-20 h-0.5 bg-white mx-auto" />
                         <p className="uppercase text-lg tracking-widest">Tickets Sold</p>
