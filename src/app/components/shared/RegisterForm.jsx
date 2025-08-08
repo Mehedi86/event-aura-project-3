@@ -1,28 +1,29 @@
-import { registerUser } from '@/app/actions/auth/registerUser';
+// import { registerUser } from '@/app/actions/auth/registerUser';
 import React from 'react'
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 export default function RegisterForm() {
-    const handleSignUp = async (event) => {
-        event.preventDefault();
-        const newUser = {
-            name: event.target.name.value,
-            email: event.target.email.value,
-            password: event.target.password.value,
-        };
+    // const handleSignUp = async (event) => {
+    //     event.preventDefault();
+    //     const newUser = {
+    //         name: event.target.name.value,
+    //         email: event.target.email.value,
+    //         password: event.target.password.value,
+    //     };
 
-        const result = await registerUser(newUser);
-        if (result.acknowledged) {
-            Swal.fire({
-                title: "Drag me!",
-                icon: "success",
-                draggable: true
-            });
-            event.target.reset();
-        }
-    };
+    //     const result = await registerUser(newUser);
+    //     if (result.acknowledged) {
+    //         Swal.fire({
+    //             title: "Drag me!",
+    //             icon: "success",
+    //             draggable: true
+    //         });
+    //         event.target.reset();
+    //     }
+    // };
+    // onSubmit={handleSignUp}
     return (
-        <form onSubmit={handleSignUp} action="">
+        <form  action="">
             <label htmlFor="email">Name</label> <br />
             <input
                 type="text"

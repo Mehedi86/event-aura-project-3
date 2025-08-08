@@ -56,7 +56,7 @@ export default function Navbar() {
           </div>
           <div>
             <Link href="/pages/login" className='text-orange-400 hover:underline px-2'>Login</Link>
-            <Link href="/register" className='text-gray-300 border-l-2 border-gray-500 pl-2 hover:underline'>Register</Link>
+            <Link href="/pages/register" className='text-gray-300 border-l-2 border-gray-500 pl-2 hover:underline'>Register</Link>
           </div>
         </div>
       </div>
