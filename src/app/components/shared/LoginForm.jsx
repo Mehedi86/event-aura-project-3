@@ -1,30 +1,31 @@
 'use client'
 import React from 'react'
 // import { signIn } from "next-auth/react"
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 // import toast from 'react-hot-toast';
 
 export default function LoginForm() {
-    const router = useRouter();
+    // const router = useRouter();
     const handleLogin = async (event) => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
+        console.log({email, password})
         // toast("Submitting...")
-        try {
-            const response = await signIn("credentials", { email, password, callbackUrl: "/", redirect: false });
+        // try {
+        //     const response = await signIn("credentials", { email, password, callbackUrl: "/", redirect: false });
 
-            if (response.ok) {
-                // toast.success("Logged In Successfully!!")
-                router.push("/")
-            }
-            else {
-                // toast.error("Failed to login !!")
-            }
-        } catch (error) {
-            console.log(error);
-            // toast.error("Failed to login !!")
-        }
+        //     if (response.ok) {
+        //         toast.success("Logged In Successfully!!")
+        //         router.push("/")
+        //     }
+        //     else {
+        //         toast.error("Failed to login !!")
+        //     }
+        // } catch (error) {
+        //     console.log(error);
+        //     toast.error("Failed to login !!")
+        // }
     };
     return (
         <form onSubmit={handleLogin} action="">
