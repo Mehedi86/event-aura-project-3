@@ -1,5 +1,7 @@
 // import { registerUser } from '@/app/actions/auth/registerUser';
+import { registerUser } from '@/app/actions/auth/registerUser';
 import React from 'react'
+import Swal from 'sweetalert2';
 // import Swal from 'sweetalert2';
 
 export default function RegisterForm() {
@@ -10,17 +12,16 @@ export default function RegisterForm() {
             email: event.target.email.value,
             password: event.target.password.value,
         };
-        console.log(newUser)
-
-        //     const result = await registerUser(newUser);
-        //     if (result.acknowledged) {
-        //         Swal.fire({
-        //             title: "Drag me!",
-        //             icon: "success",
-        //             draggable: true
-        //         });
-        //         event.target.reset();
-        //     }
+        const result = await registerUser(newUser);
+        console.log(result);
+        if (result.acknowledged) {
+            Swal.fire({
+                title: "Drag me!",
+                icon: "success",
+                draggable: true
+            });
+            event.target.reset();
+        }
     };
 
     return (
