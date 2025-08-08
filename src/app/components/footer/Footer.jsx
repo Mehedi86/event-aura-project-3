@@ -3,7 +3,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGoogle, FaInstagram } from 'rea
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white text-sm mt-10">
+    <footer className="bg-black text-white text-sm">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className='py-6'>
             <h1 className='text-4xl'>EventAura</h1>

@@ -12,32 +12,21 @@ const Page = () => {
   // const path = searchParams.get("redirect");
 
   return (
-    <div className="container min-h-screen px-4 md:px-12 lg:px-24 mx-auto py-48 md:py-48">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div className="min-h-screen px-4 md:px-12 lg:px-24 mx-auto pt-48 md:pt-48 bg-[url('/img/login/login.jpg')] bg-center bg-cover bg-no-repeat">
+      <div className="border-2 p-6 md:p-12 bg-white w-full md:w-1/3 mx-auto">
+        <h6 className="text-2xl md:text-3xl font-semibold text-primary text-center mb-6 md:mb-12">
+          Sign In
+        </h6>
+        <LoginForm />
         <div>
-          {/* <Image
-            src="/img/login/login.jpg"
-            height={540}
-            width={540}
-            alt="login image"
-            className="w-full h-auto"
-          /> */}
-        </div>
-        <div className="border-2 p-6 md:p-12">
-          <h6 className="text-2xl md:text-3xl font-semibold text-primary text-center mb-6 md:mb-12">
-            Sign In
+          <h6 className="my-6 md:my-12 text-center">or sign in with</h6>
+          {/* <SocialSignin /> */}
+          <h6 className="my-6 md:my-12 text-center">
+            Don’t have an account?{" "}
+            <Link className="text-primary font-semibold" href={"/signup"}>
+              Sign Up
+            </Link>
           </h6>
-          <LoginForm />
-          <div>
-            <h6 className="my-6 md:my-12 text-center">or sign in with</h6>
-            {/* <SocialSignin /> */}
-            <h6 className="my-6 md:my-12 text-center">
-              Don’t have an account?{" "}
-              <Link className="text-primary font-semibold" href={"/signup"}>
-                Sign Up
-              </Link>
-            </h6>
-          </div>
         </div>
       </div>
     </div>
