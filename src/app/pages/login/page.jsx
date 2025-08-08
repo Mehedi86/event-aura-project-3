@@ -1,10 +1,11 @@
 "use client";
 import LoginForm from "@/app/components/shared/LoginForm";
+import SocialSignin from "@/app/components/shared/SocialSignin";
 // import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 // import { useRouter, useSearchParams } from "next/navigation";
-// import SocialSignin from "@/components/SocialSignin";
+
 
 const Page = () => {
   // const router = useRouter();
@@ -19,9 +20,9 @@ const Page = () => {
         </h6>
         <LoginForm />
         <div>
-          <h6 className="my-6 md:my-12 text-center">or sign in with</h6>
-          {/* <SocialSignin /> */}
-          <h6 className="my-6 md:my-12 text-center">
+          <h6 className="my-6 md:my-6 text-center">or sign in with</h6>
+          <SocialSignin />
+          <h6 className="my-6 md:my-6 text-center">
             Don’t have an account?{" "}
             <Link className="text-primary font-semibold" href={"/signup"}>
               Sign Up
