@@ -1,16 +1,13 @@
 "use client";
+
 import LoginForm from "@/app/components/shared/LoginForm";
 import SocialSignin from "@/app/components/shared/SocialSignin";
-// import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-// import { useRouter, useSearchParams } from "next/navigation";
+
 
 
 const Page = () => {
-  // const router = useRouter();
-  // const searchParams = useSearchParams();
-  // const path = searchParams.get("redirect");
 
   return (
     <div className="min-h-screen px-4 md:px-12 lg:px-24 mx-auto pt-48 md:pt-48 bg-[url('/img/login/login.jpg')] bg-center bg-cover bg-no-repeat">
