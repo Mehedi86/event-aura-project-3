@@ -55,8 +55,8 @@ export default function Navbar() {
             <p className='flex items-center gap-1'><IoMdMail size={16} className='text-orange-500' /> event-aura@gmail.com</p>
           </div>
           <div>
-            <Link href="/pages/login" className='text-orange-400 hover:underline px-2'>Login</Link>
-            <Link href="/pages/register" className='text-gray-300 border-l-2 border-gray-500 pl-2 hover:underline'>Register</Link>
+            <Link href="/login" className='text-orange-400 hover:underline px-2'>Login</Link>
+            <Link href="/register" className='text-gray-300 border-l-2 border-gray-500 pl-2 hover:underline'>Register</Link>
           </div>
         </div>
       </div>
