@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 
 
@@ -9,7 +11,7 @@ export default function RegisterForm() {
             email: event.target.email.value,
             password: event.target.password.value,
         };
-        console.log(newUser)
+        
     };
 
     return (

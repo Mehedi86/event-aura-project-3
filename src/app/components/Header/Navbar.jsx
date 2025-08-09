@@ -41,7 +41,7 @@ export default function Navbar() {
       <li className='hover:scale-110 transition duration-200 cursor-pointer'>Events</li>
       <li className='hover:scale-110 transition duration-200 cursor-pointer'>Search</li>
       <li className='hover:scale-110 transition duration-200 cursor-pointer'>Gallery</li>
-      <li className='hover:scale-110 transition duration-200 cursor-pointer'>Contact</li>
+      <Link href="/about" className='hover:scale-110 transition duration-200 cursor-pointer'>Contact</Link>
     </ul>
   );
 
