@@ -1,9 +1,12 @@
 'use client'
 
+import { registerUser } from '@/app/actions/auth/registerUser';
 import React from 'react'
+import Swal from 'sweetalert2';
 
 
 export default function RegisterForm() {
+
     const handleSignUp = async (event) => {
         event.preventDefault();
         const newUser = {
@@ -11,7 +14,16 @@ export default function RegisterForm() {
             email: event.target.email.value,
             password: event.target.password.value,
         };
-        
+        const result = await registerUser(newUser);
+        if (result.acknowledged) {
+            Swal.fire({
+                title: "Drag me!",
+                icon: "success",
+                draggable: true
+            });
+            event.target.reset();
+        }
+
     };
 
     return (
