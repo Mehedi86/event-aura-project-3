@@ -43,7 +43,7 @@ export default function Navbar() {
     <ul className='flex gap-4'>
       <li className='hover:scale-110 transition duration-200 cursor-pointer'>Dashboard</li>
       <li className='hover:scale-110 transition duration-200 cursor-pointer'>Events</li>
-      <li className='hover:scale-110 transition duration-200 cursor-pointer'>Search</li>
+      <Link href="/search" className='hover:scale-110 transition duration-200 cursor-pointer'>Search</Link>
       <Link href="/gallary" className='hover:scale-110 transition duration-200 cursor-pointer'>Gallery</Link>
       <Link href="/contact" className='hover:scale-110 transition duration-200 cursor-pointer'>Contact</Link>
     </ul>
