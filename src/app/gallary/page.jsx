@@ -13,7 +13,7 @@ const Page = () => {
   ];
 
   return (
-    <div className="w-11/12 lg:w-4/5 mx-auto min-h-screen px-6 py-20 bg-gray-100">
+    <div className="w-11/12 lg:w-4/5 mx-auto min-h-screen px-6 py-40 bg-gray-100">
       <h1 className="text-4xl font-bold text-center mb-12">Gallery</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
