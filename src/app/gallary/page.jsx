@@ -20,7 +20,7 @@ const Page = () => {
         {images.map((src, idx) => (
           <div
             key={idx}
-            className="relative overflow-hidden rounded-lg shadow-lg group"
+            className="relative overflow-hidden rounded-lg shadow-lg group cursor-pointer"
           >
             <img
               src={src}
