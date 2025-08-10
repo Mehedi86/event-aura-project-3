@@ -41,8 +41,9 @@ export default function Navbar() {
 
   const navItems = () => (
     <ul className='flex gap-4'>
-      <li className='hover:scale-110 transition duration-200 cursor-pointer'>Dashboard</li>
-      <li className='hover:scale-110 transition duration-200 cursor-pointer'>Events</li>
+      {status == 'authenticated' ? <li className='hover:scale-110 transition duration-200 cursor-pointer'>Book An Event</li> : ''}
+      {status == 'authenticated' ? <li className='hover:scale-110 transition duration-200 cursor-pointer'>Dashboard</li> : ''}
+      <Link href="/events" className='hover:scale-110 transition duration-200 cursor-pointer'>Events</Link>
       <Link href="/search" className='hover:scale-110 transition duration-200 cursor-pointer'>Search</Link>
       <Link href="/gallary" className='hover:scale-110 transition duration-200 cursor-pointer'>Gallery</Link>
       <Link href="/contact" className='hover:scale-110 transition duration-200 cursor-pointer'>Contact</Link>
