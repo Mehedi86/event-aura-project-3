@@ -1,5 +1,6 @@
 'use client';
 
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -10,6 +11,8 @@ export default function Navbar() {
   const [isHomePage, setIsHomePage] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { data: session, status } = useSession();
+
 
   useEffect(() => {
     setIsHomePage(pathname === '/');
@@ -27,6 +30,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
 
+
   // Determine navbar classes
   let navbarClasses = '';
   if (isHomePage && !scrolled) {
@@ -40,8 +44,8 @@ export default function Navbar() {
       <li className='hover:scale-110 transition duration-200 cursor-pointer'>Dashboard</li>
       <li className='hover:scale-110 transition duration-200 cursor-pointer'>Events</li>
       <li className='hover:scale-110 transition duration-200 cursor-pointer'>Search</li>
-      <li className='hover:scale-110 transition duration-200 cursor-pointer'>Gallery</li>
-      <Link href="/about" className='hover:scale-110 transition duration-200 cursor-pointer'>Contact</Link>
+      <Link href="/gallary" className='hover:scale-110 transition duration-200 cursor-pointer'>Gallery</Link>
+      <Link href="/contact" className='hover:scale-110 transition duration-200 cursor-pointer'>Contact</Link>
     </ul>
   );
 
@@ -55,8 +59,9 @@ export default function Navbar() {
             <p className='flex items-center gap-1'><IoMdMail size={16} className='text-orange-500' /> event-aura@gmail.com</p>
           </div>
           <div>
-            <Link href="/login" className='text-orange-400 hover:underline px-2'>Login</Link>
-            <Link href="/register" className='text-gray-300 border-l-2 border-gray-500 pl-2 hover:underline'>Register</Link>
+            {status == 'authenticated' ? (<><button onClick={() => signOut()} className='text-gray-300 pl-2 cursor-pointer hover:underline'>Logout</button></>) : (<><Link href="/login" className='text-orange-400 hover:underline px-2'>Login</Link>
+              <Link href="/register" className='text-gray-300 border-l-2 border-gray-500 pl-2 hover:underline'>Register</Link></>)}
+
           </div>
         </div>
       </div>
