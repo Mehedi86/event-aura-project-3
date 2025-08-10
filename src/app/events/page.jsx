@@ -1,13 +1,22 @@
-import dbConnect from '@/lib/dbConnect'
-import React from 'react'
+import dbConnect from "@/lib/dbConnect";
+import React from "react";
+import EventCard from "../components/shared/EventCard";
+
 
 export default async function Events() {
     const eventCollection = dbConnect("eventBookings");
-    const data = await eventCollection.find({}).toArray();
-    console.log(data)
-    return (
-        <div>
+    const events = await eventCollection.find({}).toArray();
 
+    // Mongo returns _id as an ObjectId — convert to string for React key and props
+
+
+    return (
+        <div className="w-11/12 lg:w-4/5 mx-auto px-6 py-40 grid md:grid-cols-3 gap-6">
+            {events.length === 0 && <p>No events found.</p>}
+            {events.map((event) => (
+                <EventCard key={event._id} event={event} />
+            ))}
         </div>
-    )
+    );
 }
+
