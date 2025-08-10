@@ -1,6 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function BookEvent() {
   const { data: session, status } = useSession();
@@ -23,7 +24,8 @@ export default function BookEvent() {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const bookingData = {
       ...form,
@@ -39,8 +41,33 @@ export default function BookEvent() {
     };
     console.log("Booking Data to submit:", bookingData);
 
-    // TODO: Submit bookingData to your backend API
+    try {
+      const res = await fetch("http://localhost:3000/api/eventBooking", {
+        method: "POST",
+        body: JSON.stringify(bookingData),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const response = await res.json();
+      toast.success(response?.message || "Booking successful");
+
+      // Reset form state (not .reset() since form is state object)
+      setForm({
+        eventCategory: "",
+        proposedEventName: "",
+        proposedEventDate: "",
+        proposedEventTime: "",
+        venue: "",
+        additionalNotes: "",
+        organizerPhone: "",
+        organizerAddress: "",
+      });
+    } catch (err) {
+      toast.error("Booking failed");
+      console.error("Booking failed", err);
+    }
   };
+
 
   return (
     <div className="w-11/12 lg:w-3/5 mx-auto px-6 py-48 bg-white rounded shadow">

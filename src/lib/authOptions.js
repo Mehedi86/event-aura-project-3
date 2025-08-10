@@ -52,7 +52,7 @@ export const authOptions = {
             if (account) {
                 const { providerAccountId, provider } = account;
                 const { email: user_email, image, name } = user;
-                const userCollection = dbConnect('user');
+                const userCollection = dbConnect('users');
                 const isExist = await userCollection.findOne({ providerAccountId });
                 if (!isExist) {
                     const payload = { providerAccountId, provider, email: user_email, image, name };
