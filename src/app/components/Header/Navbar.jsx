@@ -1,6 +1,7 @@
 'use client';
 
 import { signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -60,8 +61,10 @@ export default function Navbar() {
             <p className='flex items-center gap-1'><IoMdMail size={16} className='text-orange-500' /> event-aura@gmail.com</p>
           </div>
           <div>
-            {status == 'authenticated' ? (<><button onClick={() => signOut()} className='text-gray-300 pl-2 cursor-pointer hover:underline'>Logout</button></>) : (<><Link href="/login" className='text-orange-400 hover:underline px-2'>Login</Link>
-              <Link href="/register" className='text-gray-300 border-l-2 border-gray-500 pl-2 hover:underline'>Register</Link></>)}
+            {status == 'authenticated' ?
+              (<div className='flex items-center'><Image src={session?.user?.image} width={25} height={25} alt='image' />
+                <button onClick={() => signOut()} className='text-gray-300 pl-2 cursor-pointer hover:underline'>Logout</button></div>) : (<><Link href="/login" className='text-orange-400 hover:underline px-2'>Login</Link>
+                  <Link href="/register" className='text-gray-300 border-l-2 border-gray-500 pl-2 hover:underline'>Register</Link></>)}
 
           </div>
         </div>

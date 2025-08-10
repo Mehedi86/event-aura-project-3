@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-    remotePatterns: [new URL('https://i.ibb.co.com/N2c0cwBY/**')],
+  images: {
+    remotePatterns: [{
+      protocol: 'https',
+      hostname: 'i.ibb.co'
+    },
+    {
+      protocol: 'https',
+      hostname: "lh3.googleusercontent.com"
+    }]
   },
 };
 
