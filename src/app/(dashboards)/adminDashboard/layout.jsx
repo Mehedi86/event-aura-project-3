@@ -15,13 +15,7 @@ export default function AdminDashboardLayout({ children }) {
       <aside className="col-span-3 border-r bg-gray-50 p-6 flex flex-col items-center pt-36">
         {/* Profile */}
         <div className="text-center mb-8">
-          {/* <Image
-            src={profileImage}
-            alt="User profile image"
-            width={100}
-            height={100}
-            className="rounded-full mx-auto"
-          /> */}
+          
           <h2 className="mt-4 font-semibold">{session?.user?.name || 'Admin User'}</h2>
           <p className="text-sm text-gray-500">{session?.user?.email}</p>
         </div>
@@ -88,7 +82,7 @@ export default function AdminDashboardLayout({ children }) {
       </aside>
 
       {/* Main Content */}
-      <main className="col-span-9 p-6">{children}</main>
+      <main className="col-span-9 p-6 pt-24">{children}</main>
     </div>
   );
 }
