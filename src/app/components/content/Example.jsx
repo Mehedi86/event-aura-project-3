@@ -17,27 +17,40 @@ export default function ParallaxSection() {
                     <IoPlayCircleOutline size={60} />
                 </button>
             </div>
-            <div className='bg-white w-full h-[100px] flex justify-center items-center'>
-                <div className='w-1/3 mx-auto flex gap-6 text-xl font-bold text-neutral-400'>
-                    {division.map((d, i) => <h1 className='text-center' key={i}>{d}</h1>)}
+            {/* Division Names */}
+            <div className='bg-white w-full py-4 flex flex-wrap justify-center items-center h-[150px]'>
+                <div className='flex flex-wrap justify-center gap-4 text-sm sm:text-base md:text-lg lg:text-xl font-bold text-neutral-400 px-4'>
+                    {division.map((d, i) => (
+                        <h1 className='text-center' key={i}>{d}</h1>
+                    ))}
                 </div>
             </div>
-            <div className="relative w-full h-[250px] bg-center bg-cover bg-no-repeat bg-[url('/img/banner/subbanner.jpg')] text-white">
-                <div className='absolute inset-0 bg-orange-500/80'>
-                    <div className='w-1/3 mx-auto text-center my-12 space-y-3'>
-                        <h1 className='font-bold text-lg'>Stay Up to date With Your Favorite Events!</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                        <div className='space-x-2'>
-                            <input
-                                className="w-[250px] py-2 border border-white rounded-3xl text-white text-sm px-4 placeholder-white"
-                                type="text"
-                                placeholder="Your Email Address"
-                            />
-                            <button className='bg-white text-sm px-6 py-2 rounded-3xl font-bold text-orange-500'>SUBSCRIBE</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {/* contact */}
+            <div className="relative w-full h-[250px] sm:h-[300px] md:h-[300px] lg:h-[300px] bg-center bg-cover bg-no-repeat bg-[url('/img/banner/subbanner.jpg')] text-white">
+  <div className="absolute inset-0 bg-orange-500/80 flex items-center justify-center">
+    <div className="w-11/12 sm:w-10/12 md:w-8/12 lg:w-1/3 text-center space-y-3 px-4">
+      <h1 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl">
+        Stay Up to date With Your Favorite Events!
+      </h1>
+      <p className="text-xs sm:text-sm md:text-base leading-relaxed">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+        volutpat.
+      </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-2">
+        <input
+          className="w-full sm:w-[250px] py-2 border border-white rounded-3xl text-white text-sm px-4 placeholder-white bg-transparent"
+          type="text"
+          placeholder="Your Email Address"
+        />
+        <button className="bg-white text-sm px-6 py-2 rounded-3xl font-bold text-orange-500 hover:bg-gray-100 transition">
+          SUBSCRIBE
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
         </div>
     );
 }
