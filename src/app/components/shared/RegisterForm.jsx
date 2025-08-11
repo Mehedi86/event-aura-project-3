@@ -1,11 +1,13 @@
 'use client'
 
 import { registerUser } from '@/app/actions/auth/registerUser';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 import Swal from 'sweetalert2';
 
 
 export default function RegisterForm() {
+    const router = useRouter();
 
     const handleSignUp = async (event) => {
         event.preventDefault();
@@ -13,6 +15,7 @@ export default function RegisterForm() {
             name: event.target.name.value,
             email: event.target.email.value,
             password: event.target.password.value,
+            role: 'user'
         };
         const result = await registerUser(newUser);
         if (result.acknowledged) {
@@ -22,6 +25,7 @@ export default function RegisterForm() {
                 draggable: true
             });
             event.target.reset();
+            router.push("/login")
         }
 
     };

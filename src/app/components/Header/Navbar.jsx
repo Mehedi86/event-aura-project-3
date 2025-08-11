@@ -13,8 +13,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const { data: session, status } = useSession();
+  const sessions = useSession();
 
-
+console.log(sessions)
   useEffect(() => {
     setIsHomePage(pathname === '/');
     setScrolled(false); // reset scroll state when changing route
@@ -42,9 +43,9 @@ export default function Navbar() {
 
   const navItems = () => (
     <ul className='flex gap-4'>
-      {status == 'authenticated' ? <Link href="/bookEvent" className='hover:scale-110 transition duration-200 cursor-pointer'>Book An Event</Link> : ''}
-      {status == 'authenticated' ? <Link href="/userDashboard/yourBookings" className='hover:scale-110 transition duration-200 cursor-pointer'>Dashboard</Link> : ''}
-      {status == 'authenticated' ? <Link href="/adminDashboard/manageUser" className='hover:scale-110 transition duration-200 cursor-pointer'>A Dashboard</Link> : ''}
+      {status == 'authenticated' && session?.user?.role == 'user' ? <Link href="/bookEvent" className='hover:scale-110 transition duration-200 cursor-pointer'>Book An Event</Link> : ''}
+      {status == 'authenticated' && session?.user?.role == 'user' ? <Link href="/userDashboard/yourBookings" className='hover:scale-110 transition duration-200 cursor-pointer'>Dashboard</Link> : ''}
+      {status == 'authenticated' && session?.user?.role == 'admin' ? <Link href="/adminDashboard/manageUser" className='hover:scale-110 transition duration-200 cursor-pointer'>A Dashboard</Link> : ''}
       <Link href="/events" className='hover:scale-110 transition duration-200 cursor-pointer'>Events</Link>
       <Link href="/search" className='hover:scale-110 transition duration-200 cursor-pointer'>Search</Link>
       <Link href="/gallary" className='hover:scale-110 transition duration-200 cursor-pointer'>Gallery</Link>
@@ -63,7 +64,7 @@ export default function Navbar() {
           </div>
           <div>
             {status == 'authenticated' ?
-              (<div className='flex items-center'><Image src={session?.user?.image} width={25} height={25} alt='image' />
+              (<div className='flex items-center'><Image src={session?.user?.image || "/img/user/userIcon.png"} width={25} height={25} alt='image' />
                 <button onClick={() => signOut()} className='text-gray-300 pl-2 cursor-pointer hover:underline'>Logout</button></div>) : (<><Link href="/login" className='text-orange-400 hover:underline px-2'>Login</Link>
                   <Link href="/register" className='text-gray-300 border-l-2 border-gray-500 pl-2 hover:underline'>Register</Link></>)}
 
