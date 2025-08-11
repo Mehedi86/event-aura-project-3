@@ -19,7 +19,7 @@ export default function Banner() {
       <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 opacity-20"></div>
 
       {/* Content */}
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white text-center px-4 pt-24">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white text-center px-4 pt-36 md:pt-24">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Make Your Dream Come True
         </h1>
