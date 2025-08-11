@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-black text-white text-sm pt-20">
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Logo */}
-        <div className="py-6 text-center text-left">
+        <div className="py-6 text-left">
           <h1 className="text-3xl sm:text-4xl font-bold">EventAura</h1>
         </div>
 

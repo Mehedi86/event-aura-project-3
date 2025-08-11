@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import CategoryBox from '../Shared/CategoryBox'
+import CategoryBox from '../shared/CategoryBox'
 
 export default function EventCategory() {
   const [categories, setCategories] = useState([])
