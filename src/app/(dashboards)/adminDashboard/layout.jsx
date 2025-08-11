@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { FaCalendarCheck, FaUser, FaCog, FaChartBar, FaTools } from 'react-icons/fa';
 
 export default function AdminDashboardLayout({ children }) {
@@ -12,7 +12,7 @@ export default function AdminDashboardLayout({ children }) {
   return (
     <div className="grid grid-cols-12 min-h-screen">
       {/* Sidebar */}
-      <aside className="col-span-3 border-r bg-gray-50 p-6 flex flex-col items-center pt-36">
+      <aside className="hidden col-span-3 border-r bg-gray-50 p-6 lg:flex flex-col items-center pt-36">
         {/* Profile */}
         <div className="text-center mb-8">
           
@@ -82,7 +82,7 @@ export default function AdminDashboardLayout({ children }) {
       </aside>
 
       {/* Main Content */}
-      <main className="col-span-9 p-6 pt-24">{children}</main>
+      <main className="col-span-12 lg:col-span-9 p-6 pt-24">{children}</main>
     </div>
   );
 }

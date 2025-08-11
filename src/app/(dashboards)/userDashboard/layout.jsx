@@ -2,21 +2,22 @@
 
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { FaCalendarCheck, FaUser, FaCog } from 'react-icons/fa';
+import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function UserDashboardLayout({ children }) {
   const { data: session } = useSession();
   const profileImage = session?.user?.image || '/default-avatar.png';
 
-  return (
-    <div className="grid grid-cols-12 min-h-screen">
+  // <button><RxHamburgerMenu size={20} /></button>
 
+  return (
+    <div className="grid grid-cols-12 min-h-screen pt-12 lg:pt-6">
       {/* Sidebar */}
-      <aside className="col-span-3 border-r bg-gray-50 p-6 flex flex-col items-center pt-36">
+      <aside className="hidden col-span-3 border-r bg-gray-50 p-6 lg:flex flex-col items-center pt-36">
         {/* Profile */}
         <div className="text-center mb-8 ">
-          
+
           <h2 className="mt-4 font-semibold">{session?.user?.name || 'User'}</h2>
           <p className="text-sm text-gray-500">{session?.user?.email}</p>
         </div>
@@ -57,7 +58,7 @@ export default function UserDashboardLayout({ children }) {
       </aside>
 
       {/* Main Content */}
-      <main className="col-span-9 p-6 pt-24">
+      <main className="col-span-12 lg:col-span-9 p-6 pt-24">
         {children}
       </main>
     </div>
