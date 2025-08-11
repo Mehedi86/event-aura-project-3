@@ -12,7 +12,7 @@ export default function YourBookings() {
 
     const loadData = async () => {
       try {
-        const res = await fetch('https://event-management-ten-topaz.vercel.app/api/yourBookings', { credentials: 'include' });
+        const res = await fetch('/api/yourBookings', { credentials: 'include' });
         if (!res.ok) throw new Error('Failed to fetch');
         const bookings = await res.json();
         setYourBookings(
