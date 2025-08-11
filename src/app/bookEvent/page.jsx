@@ -42,7 +42,7 @@ export default function BookEvent() {
     console.log("Booking Data to submit:", bookingData);
 
     try {
-      const res = await fetch("http://localhost:3000/api/eventBooking", {
+      const res = await fetch("https://event-management-ten-topaz.vercel.app/api/eventBooking", {
         method: "POST",
         body: JSON.stringify(bookingData),
         headers: { "Content-Type": "application/json" },
