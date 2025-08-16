@@ -26,7 +26,7 @@ export default function AdminDashboardLayout({ children }) {
             {/* Manage Users */}
             <li>
               <Link
-                href="/dashboard/admin/users"
+                href="/adminDashboard/manageUser"
                 className="flex items-center gap-3 px-4 py-2 rounded-md hover:bg-gray-200"
               >
                 <FaUser />
@@ -37,7 +37,7 @@ export default function AdminDashboardLayout({ children }) {
             {/* Manage Bookings */}
             <li>
               <Link
-                href="/dashboard/admin/bookings"
+                href="/adminDashboard/manageBookings"
                 className="flex items-center gap-3 px-4 py-2 rounded-md hover:bg-gray-200"
               >
                 <FaCalendarCheck />
@@ -48,7 +48,7 @@ export default function AdminDashboardLayout({ children }) {
             {/* Manage Events */}
             <li>
               <Link
-                href="/dashboard/admin/events"
+                href="/adminDashboard/manageEvents"
                 className="flex items-center gap-3 px-4 py-2 rounded-md hover:bg-gray-200"
               >
                 <FaCog />
@@ -59,7 +59,7 @@ export default function AdminDashboardLayout({ children }) {
             {/* Reports & Analytics */}
             <li>
               <Link
-                href="/dashboard/admin/reports"
+                href="/adminDashboard/analytics"
                 className="flex items-center gap-3 px-4 py-2 rounded-md hover:bg-gray-200"
               >
                 <FaChartBar />
@@ -70,7 +70,7 @@ export default function AdminDashboardLayout({ children }) {
             {/* Site Settings */}
             <li>
               <Link
-                href="/dashboard/admin/settings"
+                href="/adminDashboard/siteSettings"
                 className="flex items-center gap-3 px-4 py-2 rounded-md hover:bg-gray-200"
               >
                 <FaTools />
