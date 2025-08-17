@@ -7,7 +7,6 @@ import { FaCalendarCheck, FaUser, FaCog, FaChartBar, FaTools } from 'react-icons
 
 export default function AdminDashboardLayout({ children }) {
   const { data: session } = useSession();
-  const profileImage = session?.user?.image || '/default-avatar.png';
 
   return (
     <div className="grid grid-cols-12 min-h-screen">
