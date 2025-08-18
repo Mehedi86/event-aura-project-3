@@ -7,7 +7,7 @@ export default async function ManageUser() {
   const users = await userCollection.find({}).toArray();
 
   return (
-    <div className="pt-32 lg:pt-24">
+    <div>
       <h1 className="text-3xl font-bold mb-8 text-center">Manage Users</h1>
       <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
         <table className="min-w-full divide-y divide-gray-200 bg-white">
