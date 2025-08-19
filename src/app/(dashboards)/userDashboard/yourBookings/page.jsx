@@ -32,7 +32,7 @@ export default function YourBookings() {
   }
 
   return (
-    <div className="py-20 max-w-6xl mx-auto px-4">
+    <div className="max-w-6xl mx-auto px-4">
       <h1 className="text-2xl font-bold mb-6 text-gray-800">Your Bookings</h1>
 
       {yourBookings.length === 0 ? (
