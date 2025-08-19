@@ -48,7 +48,7 @@ export default function AdminDashboardLayout({ children }) {
       {/* Sidebar */}
       <div className="drawer-side">
         <label htmlFor="admin-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-        <aside className="pt-[200px] md:pt-[150px] menu bg-base-200 text-base-content min-h-full w-80 p-6">
+        <aside className="pt-[200px] md:pt-[150px] lg:pt-[20] menu bg-base-200 text-base-content min-h-full w-80 p-6">
           {/* Profile */}
           <div className="text-center mb-8">
             <h2 className="mt-4 font-semibold">{session?.user?.name || 'Admin User'}</h2>
