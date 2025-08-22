@@ -3,6 +3,7 @@ import Example from "./components/content/Example";
 import RecentNews from "./components/content/RecentNews";
 import RecentVideos from "./components/content/RecentVideos";
 import Stats from "./components/content/Stats";
+import Testimonials from "./components/content/Testimonials";
 import Banner from "./components/header/Banner";
 import Suggest from "./components/header/Suggest";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <RecentVideos/>
       <Example/>
       <RecentNews/>
+      <Testimonials/>
     </div>
   );
 }

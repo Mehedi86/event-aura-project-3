@@ -34,7 +34,7 @@ const newsEvents = [
 const RecentNews = () => {
     console.log('hello')
   return (
-    <div className="w-11/12 lg:w-4/5 mx-auto my-40">
+    <div className="w-11/12 lg:w-4/5 mx-auto mt-40">
           {/* Section Heading */}
           <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
             <span className="w-1 h-5 bg-orange-500 inline-block"></span>
