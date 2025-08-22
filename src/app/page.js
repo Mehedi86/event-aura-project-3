@@ -1,5 +1,6 @@
 import EventCategory from "./components/content/EventCategory";
 import Example from "./components/content/Example";
+import RecentNews from "./components/content/RecentNews";
 import RecentVideos from "./components/content/RecentVideos";
 import Stats from "./components/content/Stats";
 import Banner from "./components/header/Banner";
@@ -14,6 +15,7 @@ export default function Home() {
       <Stats/>
       <RecentVideos/>
       <Example/>
+      <RecentNews/>
     </div>
   );
 }
