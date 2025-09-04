@@ -60,13 +60,7 @@ export default function RecentVideos() {
                 />
               ) : (
                 <>
-                  <Image
-                    src={video.thumbnail}
-                    alt={video.title}
-                    width={300}
-                    height={180}
-                    className="w-full h-full object-cover"
-                  />
+                  <img className="w-full h-full object-cover" src={video.thumbnail}/>
                   {/* Bottom Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white px-3 py-2 flex justify-between items-center text-sm">
                     <FaPlay className="text-xs" />
