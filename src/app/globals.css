@@ -29,3 +29,7 @@ body {
 .example {
   background-image: url('/img/banner/cele.jpg');
 }
+
+.active-nav {
+  color: orange;
+}

@@ -14,7 +14,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const { data: session, status } = useSession();
-
+  console.log(pathname)
   useEffect(() => {
     setIsHomePage(pathname === '/');
     setScrolled(false);
@@ -39,17 +39,17 @@ export default function Navbar() {
     <>
       {status === 'authenticated' && session?.user?.role === 'user' && (
         <>
-          <Link href="/bookEvent" className='hover:scale-110 transition duration-200'>Book An Event</Link>
-          <Link href="/userDashboard/yourBookings" className='hover:scale-110 transition duration-200'>Dashboard</Link>
+          <Link href="/bookEvent" className={`hover:scale-110 transition duration-200 ${pathname === '/bookEvent' && 'active-nav'}`}>Book An Event</Link>
+          <Link href="/userDashboard/yourBookings" className={`hover:scale-110 transition duration-200 ${pathname === '/userDashboard/yourBookings' && 'active-nav'}`}>Dashboard</Link>
         </>
       )}
       {status === 'authenticated' && session?.user?.role === 'admin' && (
-        <Link href="/adminDashboard/manageUser" className='hover:scale-110 transition duration-200'>A Dashboard</Link>
+        <Link href="/adminDashboard/manageUser" className={`hover:scale-110 transition duration-200 ${pathname === '/adminDashboard/manageUser' && 'active-nav'}`}>A Dashboard</Link>
       )}
-      <Link href="/events" className='hover:scale-110 transition duration-200'>Events</Link>
-      <Link href="/search" className='hover:scale-110 transition duration-200'>Search</Link>
-      <Link href="/gallary" className='hover:scale-110 transition duration-200'>Gallery</Link>
-      <Link href="/contact" className='hover:scale-110 transition duration-200'>Contact</Link>
+      <Link href="/events" className={`hover:scale-110 transition duration-200 ${pathname === '/events' && 'active-nav'}`}>Events</Link>
+      <Link href="/search" className={`hover:scale-110 transition duration-200 ${pathname === '/search' && 'active-nav'}`}>Search</Link>
+      <Link href="/gallary" className={`hover:scale-110 transition duration-200 ${pathname === '/gallary' && 'active-nav'}`}>Gallery</Link>
+      <Link href="/contact" className={`hover:scale-110 transition duration-200 ${pathname === '/contact' && 'active-nav'}`}>Contact</Link>
       <div className='lg:hidden'>
         {status === 'authenticated' ? (
           <div className='flex items-center'>
@@ -78,7 +78,7 @@ export default function Navbar() {
           <div>
             {status === 'authenticated' ? (
               <div className='flex items-center'>
-                <Image src={session?.user?.image || "/img/user/userIcon.png"} width={25} height={25} alt='user' className='rounded-full' />
+                <img src={session?.user?.image || "/img/user/userIcon.png"} width={25} height={25} alt='user' className='rounded-full' />
                 <button onClick={() => signOut()} className='text-gray-300 pl-2 hover:underline'>Logout</button>
               </div>
             ) : (

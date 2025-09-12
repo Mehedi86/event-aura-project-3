@@ -25,7 +25,6 @@ export default function YourBookings() {
 
     loadData();
   }, [session, status]);
-  console.log(yourBookings)
 
   if (status === 'loading') {
     return <div className='py-48 text-center'>Loading your bookings...</div>;
@@ -39,29 +38,30 @@ export default function YourBookings() {
         <p className="text-gray-500">You have no bookings yet.</p>
       ) : (
         <div className="overflow-x-auto rounded-lg shadow">
-          <table className="min-w-full border border-gray-200">
-            <thead className="bg-gray-100">
+          <table className="table table-zebra w-full">
+            {/* head */}
+            <thead>
               <tr>
-                <th className="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">Event Name</th>
-                <th className="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">Category</th>
-                <th className="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">Date</th>
-                <th className="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">Time</th>
-                <th className="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">Venue</th>
-                <th className="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">Status</th>
+                <th>#</th>
+                <th>Event Name</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Venue</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
-              {yourBookings.map((booking) => (
-                <tr key={booking._id} className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b text-sm text-gray-800">{booking.proposedEventName}</td>
-                  <td className="py-3 px-4 border-b text-sm text-gray-600">{booking.eventCategory}</td>
-                  <td className="py-3 px-4 border-b text-sm text-gray-600">
-                    {new Date(booking.proposedEventDate).toLocaleDateString()}
-                  </td>
-                  <td className="py-3 px-4 border-b text-sm text-gray-600">{booking.proposedEventTime}</td>
-                  <td className="py-3 px-4 border-b text-sm text-gray-600">{booking.venue}</td>
+              {yourBookings.map((booking, index) => (
+                <tr key={booking._id}>
+                  <th>{index + 1}</th>
+                  <td>{booking.proposedEventName}</td>
+                  <td>{booking.eventCategory}</td>
+                  <td>{new Date(booking.proposedEventDate).toLocaleDateString()}</td>
+                  <td>{booking.proposedEventTime}</td>
+                  <td>{booking.venue}</td>
                   <td
-                    className={`py-3 px-4 border-b text-sm font-semibold ${
+                    className={`font-semibold ${
                       booking.bookingStatus === 'Pending'
                         ? 'text-yellow-600'
                         : booking.bookingStatus === 'Approved'
