@@ -69,7 +69,7 @@ export default function Navbar() {
   return (
     <div className={navbarClasses}>
       {/* Top Info Bar */}
-      <div className='bg-neutral-700 py-2 hidden '>
+      <div className='bg-neutral-700 py-2 hidden lg:block'>
         <div className='w-11/12 lg:w-4/5 mx-auto flex flex-col sm:flex-row justify-between items-center text-sm text-white px-4 gap-2 sm:gap-0'>
           <div className='flex flex-col sm:flex-row gap-2 sm:gap-6 text-center sm:text-left'>
             <p className='flex items-center gap-1'><FaPhoneAlt size={14} className='text-orange-500' /> +1 (322) 233-3243-434</p>
