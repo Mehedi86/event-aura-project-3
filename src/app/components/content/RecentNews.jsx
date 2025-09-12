@@ -24,7 +24,7 @@ const newsEvents = [
     id: 3,
     eventName: "Global Climate Summit",
     newsBody: "The Global Climate Summit 2025, held in Geneva, gathered world leaders, scientists, and activists to address the urgent climate crisis. Discussions revolved around reducing carbon emissions, renewable energy adoption, and sustainable development. Governments pledged new commitments to achieve net-zero emissions by 2050, while private companies announced multi-billion-dollar investments in clean energy projects. Scientists presented alarming data on rising sea levels, extreme weather patterns, and biodiversity loss, emphasizing the need for immediate action. Activists voiced concerns about environmental justice, urging wealthier nations to support vulnerable communities disproportionately affected by climate change. One of the major outcomes was the signing of a global agreement on plastic reduction, which mandates stricter recycling practices and bans on single-use plastics in several regions. Educational campaigns were also launched to raise awareness among younger generations. The summit highlighted innovative solutions such as carbon capture technologies, solar-powered urban infrastructure, and smart farming methods. Nonprofit organizations called for stronger accountability to ensure promises translate into measurable progress. The event ended with a symbolic tree-planting ceremony involving representatives from all continents, symbolizing unity in the fight against climate change. Experts believe this summit has set a new benchmark for international cooperation toward a greener future.",
-    thumbnail: '/img/recent/recent3.jfif',
+    thumbnail: '/img/recent/recent4.png',
     date: "Saturday, April 5, 2025",
     author: "Jabed Khan"
   }
