@@ -5,6 +5,9 @@ import { BiSolidLike } from "react-icons/bi";
 
 const Page = () => {
   const [selectedImage, setSelectedImage] = useState(null)
+  const handleLikeBtn = (e) => {
+    e.stopPropagation()
+  }
 
   const images = [
     "/img/recent/recent1.jpg",
@@ -34,13 +37,13 @@ const Page = () => {
             onClick={() => setSelectedImage(src)}
           >
             <div className="absolute bottom-2 left-10 text-neutral-200 flex items-center gap-2 z-50">
-              <BiSolidLike size={24} className="hover:scale-110 cursor-pointer" />
+              <BiSolidLike onClick={(e) => handleLikeBtn(e)} size={24} className="hover:scale-150 cursor-pointer transition transform duration-300" />
               <h1 className="font-bold text-xl">10</h1>
             </div>
             <img
               src={src}
               alt={`Gallery ${idx + 1}`}
-              className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
+              className="w-full h-64 object-cover"
             />
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
               <span className="text-white font-semibold text-lg">View</span>
