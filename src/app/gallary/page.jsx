@@ -1,13 +1,27 @@
 'use client';
 
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { BiSolidLike } from "react-icons/bi";
 
 const Page = () => {
   const [selectedImage, setSelectedImage] = useState(null)
+  const { data: session, status } = useSession();
+
+
+  const router = useRouter();
   const handleLikeBtn = (e) => {
-    e.stopPropagation()
+    e.stopPropagation();
+    // console.log(status)
+    if (status === 'authenticated') {
+      console.log('you can react here')
+    }
+    console.log('the user are not authenticated')
+    router.push('/login')
   }
+
+
 
   const images = [
     "/img/recent/recent1.jpg",

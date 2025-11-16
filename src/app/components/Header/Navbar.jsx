@@ -14,7 +14,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const { data: session, status } = useSession();
-  console.log(pathname)
+  
   useEffect(() => {
     setIsHomePage(pathname === '/');
     setScrolled(false);

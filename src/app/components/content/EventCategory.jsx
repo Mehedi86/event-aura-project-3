@@ -19,7 +19,7 @@ export default function EventCategory() {
     <div className="w-11/12 lg:w-4/5 mx-auto my-10 sm:my-16 md:my-20">
       <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 flex items-center gap-2">
         <span className="w-1 h-5 bg-orange-500 inline-block"></span>
-        EVENT CATEGORY
+        EVENT CATEGORIES
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {categories.map((category) => (

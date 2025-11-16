@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 
@@ -91,9 +92,9 @@ export default function RecentVideos() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy.
             </p>
           </div>
-          <button className="bg-white text-orange-500 font-bold px-8 py-3 rounded-md hover:bg-orange-100 transition">
+          <Link href="https://www.facebook.com" target='blank' className="bg-white text-orange-500 font-bold px-8 py-3 rounded-md hover:bg-orange-100 transition">
             LEARN MORE
-          </button>
+          </Link>
         </div>
       </div>
     </div>
