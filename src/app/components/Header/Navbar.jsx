@@ -44,7 +44,7 @@ export default function Navbar() {
         </>
       )}
       {status === 'authenticated' && session?.user?.role === 'admin' && (
-        <Link href="/adminDashboard/manageUser" className={`hover:scale-110 transition duration-200 ${pathname === '/adminDashboard/manageUser' && 'active-nav'}`}>A Dashboard</Link>
+        <Link href="/adminDashboard" className={`hover:scale-110 transition duration-200 ${pathname?.startsWith('/adminDashboard') && 'active-nav'}`}>Admin Dashboard</Link>
       )}
       <Link href="/events" className={`hover:scale-110 transition duration-200 ${pathname === '/events' && 'active-nav'}`}>Events</Link>
       <Link href="/search" className={`hover:scale-110 transition duration-200 ${pathname === '/search' && 'active-nav'}`}>Search</Link>

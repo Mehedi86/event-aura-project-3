@@ -2,28 +2,30 @@
 
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { FaCalendarCheck, FaUser, FaCog, FaChartBar, FaTools } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
+import { FaHome, FaCalendarCheck, FaUser, FaCog, FaChartBar, FaTools, FaHistory } from 'react-icons/fa';
 
 export default function AdminDashboardLayout({ children }) {
   const { data: session } = useSession();
-  const router = useRouter();
+  const pathname = usePathname();
 
   const closeDrawer = () => {
     const drawer = document.getElementById("admin-drawer");
-    if (drawer) drawer.checked = false; // ✅ uncheck drawer
+    if (drawer) drawer.checked = false;
   };
 
   const navLinks = [
+    { href: "/adminDashboard", icon: <FaHome />, label: "Dashboard" },
     { href: "/adminDashboard/manageUser", icon: <FaUser />, label: "Manage Users" },
     { href: "/adminDashboard/manageBookings", icon: <FaCalendarCheck />, label: "Manage Bookings" },
     { href: "/adminDashboard/manageEvents", icon: <FaCog />, label: "Manage Events" },
     { href: "/adminDashboard/analytics", icon: <FaChartBar />, label: "Reports & Analytics" },
+    { href: "/adminDashboard/activityLogs", icon: <FaHistory />, label: "Activity Logs" },
     { href: "/adminDashboard/siteSettings", icon: <FaTools />, label: "Site Settings" },
   ];
 
   return (
-    <div className="pt-[191px] md:pt-[137px] drawer lg:drawer-open min-h-screen">
+    <div className="pt-[94px] lg:pt-[137px] drawer lg:drawer-open min-h-screen">
       <input id="admin-drawer" type="checkbox" className="drawer-toggle" />
       
       {/* Main content */}
@@ -51,24 +53,42 @@ export default function AdminDashboardLayout({ children }) {
         <aside className="pt-[200px] md:pt-[150px] lg:pt-[20] menu bg-base-200 text-base-content min-h-full w-80 p-6">
           {/* Profile */}
           <div className="text-center mb-8">
-            <h2 className="mt-4 font-semibold">{session?.user?.name || 'Admin User'}</h2>
+            <div className="avatar mb-4">
+              <div className="w-16 h-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img
+                  src={session?.user?.image || '/img/user/userIcon.png'}
+                  alt={session?.user?.name || 'Admin'}
+                />
+              </div>
+            </div>
+            <h2 className="mt-2 font-semibold">{session?.user?.name || 'Admin User'}</h2>
             <p className="text-sm text-gray-500">{session?.user?.email}</p>
+            <span className="badge badge-primary badge-sm mt-2">
+              {session?.user?.role?.toUpperCase() || 'ADMIN'}
+            </span>
           </div>
 
           {/* Navigation */}
           <ul className="space-y-2">
-            {navLinks.map((item, i) => (
-              <li key={i}>
-                <Link
-                  href={item.href}
-                  onClick={closeDrawer} // ✅ close drawer after click
-                  className="flex items-center gap-3 px-4 py-2 rounded-md hover:bg-gray-200"
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((item, i) => {
+              const isActive = pathname === item.href || (item.href !== "/adminDashboard" && pathname?.startsWith(item.href));
+              return (
+                <li key={i}>
+                  <Link
+                    href={item.href}
+                    onClick={closeDrawer}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-md transition-colors ${
+                      isActive
+                        ? 'bg-primary text-primary-content font-semibold'
+                        : 'hover:bg-gray-200'
+                    }`}
+                  >
+                    {item.icon}
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </aside>
       </div>
