@@ -3,6 +3,8 @@ import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope, FaUser, FaInfoCircle } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+
 
 export default function BookEvent() {
   const { data: session, status } = useSession();
@@ -18,6 +20,9 @@ export default function BookEvent() {
     organizerAddress: "",
   });
 
+  const router = useRouter();
+
+
   if (status === "loading") {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
@@ -25,7 +30,7 @@ export default function BookEvent() {
       </div>
     );
   }
-  
+
   if (!session) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
@@ -45,7 +50,7 @@ export default function BookEvent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     const bookingData = {
       ...form,
       bookingStatus: "Pending",
@@ -68,6 +73,7 @@ export default function BookEvent() {
 
       if (res.ok) {
         toast.success("Booking request submitted successfully!");
+
         setForm({
           eventCategory: "",
           proposedEventName: "",
@@ -78,6 +84,7 @@ export default function BookEvent() {
           organizerPhone: "",
           organizerAddress: "",
         });
+        router.push("/events");
       } else {
         const error = await res.json();
         toast.error(error.message || "Booking failed");
