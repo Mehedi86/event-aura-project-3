@@ -21,7 +21,7 @@ const Page = () => {
           <SocialSignin />
           <h6 className="my-6 md:my-6 text-center">
             Don’t have an account?{" "}
-            <Link className="text-primary font-semibold" href={"/signup"}>
+            <Link className="text-primary font-semibold" href={"/register"}>
               Sign Up
             </Link>
           </h6>
