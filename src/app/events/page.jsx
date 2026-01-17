@@ -6,6 +6,7 @@ import EventCard from "../components/shared/EventCard";
 export default async function Events() {
     const eventCollection = dbConnect("eventBookings");
     const events = await eventCollection.find({}).toArray();
+    console.log(events)
 
     
     return (
