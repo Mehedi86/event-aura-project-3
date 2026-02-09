@@ -40,10 +40,10 @@ export default function SearchEvents({ events }) {
   };
 
   return (
-    <div className="lg:w-4/5 mx-auto pt-48 pb-20">
+    <div className="lg:w-4/5 mx-auto pt-32 lg:pt-48 pb-20">
 
       {/* Search & Filters */}
-      <div className="sticky top-35 shadow-xl bg-white border border-neutral-200 p-6 rounded mb-8 z-10">
+      <div className="lg:sticky lg:top-35 shadow-xl bg-white border border-neutral-200 p-6 rounded mb-8 z-10">
         <div className="grid md:grid-cols-3 gap-4 items-center">
           {/* Keyword */}
           <input
@@ -95,7 +95,7 @@ export default function SearchEvents({ events }) {
           No events found.
         </p>
       ) : (
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="px-6 md:px-0 grid md:grid-cols-3 gap-6">
           {filteredEvents.map((event) => (
             <EventCard key={event._id} event={event} />
           ))}
