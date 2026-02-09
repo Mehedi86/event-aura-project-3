@@ -1,48 +1,72 @@
 import React from "react";
+import { CalendarDays, MapPin, User } from "lucide-react";
 
 export default function EventCard({ event }) {
-  // Map status to colors
-  const statusColors = {
-    Pending: "bg-red-100 text-red-800",
-    Confirmed: "bg-green-100 text-green-800",
-    Rejected: "bg-gray-200 text-gray-700",
+
+  const statusStyles = {
+    Pending: "bg-yellow-600 text-white",
+    Approved: "bg-green-500 text-white",
+    Rejected: "bg-red-500 text-white",
   };
 
-  const statusClass = statusColors[event.bookingStatus] || "bg-gray-100 text-gray-800";
+
+
+  const statusClass =
+    statusStyles[event.bookingStatus] || "bg-gray-100 text-gray-800";
 
   return (
-    <div className="border rounded-lg shadow-lg p-6 bg-white max-w-sm cursor-pointer hover:scale-105 transition duration-400">
-      <h2 className="text-2xl font-bold mb-3">{event.proposedEventName}</h2>
+    <div className="group relative rounded-xl overflow-hidden bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
 
-      <p className="text-gray-700 mb-1">
-        <span className="font-semibold">Category:</span> {event.eventCategory}
-      </p>
-
-      <p className="text-gray-700 mb-1">
-        <span className="font-semibold">Date & Time:</span> {event.proposedEventDate} at {event.proposedEventTime}
-      </p>
-
-      <p className="text-gray-700 mb-1">
-        <span className="font-semibold">Venue:</span> {event.venue}
-      </p>
-
-      <p className="text-gray-700 mb-1">
-        <span className="font-semibold">Organizer:</span> {event.organizer.fullName}
-      </p>
-
-      <p className="text-gray-700 mb-3">
-        <span className="font-semibold">Contact:</span> {event.organizer.phone}
-      </p>
-
-      <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${statusClass} mb-4`}>
-        Status: {event.bookingStatus}
+      {/* Header */}
+      <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 text-white">
+        <span className="text-xs uppercase tracking-wide opacity-90">
+          {event.eventCategory}
+        </span>
+        <h2 className="text-xl font-bold mt-1">
+          {event.proposedEventName}
+        </h2>
       </div>
 
-      {event.additionalNotes && (
-        <p className="text-gray-600 italic border-t pt-3 mt-3">{event.additionalNotes}</p>
-      )}
+      {/* Status badge */}
+      <span
+        className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs ${statusClass}`}
+      >
+        {event.bookingStatus}
+      </span>
+
+      {/* Content */}
+      <div className="p-5 space-y-3 text-sm text-gray-700">
+        <div className="flex items-center gap-2">
+          <CalendarDays className="w-4 h-4 text-indigo-500" />
+          <span>
+            {event.proposedEventDate} • {event.proposedEventTime}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <MapPin className="w-4 h-4 text-indigo-500" />
+          <span>{event.venue}</span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <User className="w-4 h-4 text-indigo-500" />
+          <span>{event.organizer.fullName}</span>
+        </div>
+
+        {event.additionalNotes && (
+          <p className="text-gray-500 italic border-t pt-3">
+            {event.additionalNotes}
+          </p>
+        )}
+      </div>
+
+      {/* Hover footer */}
+      <div className="transition p-4 bg-gray-50 text-center text-sm font-medium text-indigo-600">
+        View Details →
+      </div>
     </div>
   );
 }
+
 
 
