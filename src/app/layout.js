@@ -4,6 +4,7 @@ import Footer from "./components/footer/Footer";
 import { Toaster } from "react-hot-toast";
 import NextAuthProvider from "@/providers/NextAuthProvider";
 import Navbar from "./components/Header/Navbar";
+import ScrollTop from "@/lib/scroll-top";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Toaster position="top-center" reverseOrder={false} />
+          <ScrollTop/>
           <Footer />
         </NextAuthProvider>
       </body>

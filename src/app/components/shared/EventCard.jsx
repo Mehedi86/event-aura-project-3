@@ -15,7 +15,7 @@ export default function EventCard({ event }) {
     statusStyles[event.bookingStatus] || "bg-gray-100 text-gray-800";
 
   return (
-    <div className="group relative rounded-xl overflow-hidden bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+    <div className="group relative rounded overflow-hidden bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
 
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 text-white">

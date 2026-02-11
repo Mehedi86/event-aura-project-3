@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import EventCard from "../shared/EventCard";
-
+import PageBanner from "../shared/PageBanner";
 
 const categories = [
   "ALL",
@@ -19,7 +19,10 @@ export default function SearchEvents({ events }) {
   const [category, setCategory] = useState("ALL");
   const [date, setDate] = useState("");
 
-  // Filter events based on category, date, keyword
+  // ✅ Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const eventsPerPage = 6;
+
   const filteredEvents = useMemo(() => {
     return events.filter((event) => {
       const matchCategory =
@@ -33,6 +36,17 @@ export default function SearchEvents({ events }) {
     });
   }, [events, category, date, keyword]);
 
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [keyword, category, date]);
+
+  // ✅ Pagination logic
+  const indexOfLast = currentPage * eventsPerPage;
+  const indexOfFirst = indexOfLast - eventsPerPage;
+  const currentEvents = filteredEvents.slice(indexOfFirst, indexOfLast);
+  const totalPages = Math.ceil(filteredEvents.length / eventsPerPage);
+
   const clearFilters = () => {
     setKeyword("");
     setCategory("ALL");
@@ -40,12 +54,17 @@ export default function SearchEvents({ events }) {
   };
 
   return (
-    <div className="lg:w-4/5 mx-auto pt-32 lg:pt-48 pb-20">
+    <div className="lg:w-4/5 mx-auto px-4 pt-32 lg:pt-48 pb-20">
+      <div className="mb-12">
+        <PageBanner
+          subtitle="Search & Discover"
+          title="Find Your Perfect Event"
+        />
+      </div>
 
       {/* Search & Filters */}
       <div className="lg:sticky lg:top-35 shadow-xl bg-white border border-neutral-200 p-6 rounded mb-8 z-10">
         <div className="grid md:grid-cols-3 gap-4 items-center">
-          {/* Keyword */}
           <input
             type="text"
             placeholder="Search by event name or venue"
@@ -54,7 +73,6 @@ export default function SearchEvents({ events }) {
             className="w-full pl-3 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
           />
 
-          {/* Date */}
           <input
             type="date"
             value={date}
@@ -62,7 +80,6 @@ export default function SearchEvents({ events }) {
             className="w-full pl-3 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
           />
 
-          {/* Clear */}
           <button
             onClick={clearFilters}
             className="px-4 py-2 border rounded hover:bg-gray-100 transition"
@@ -71,7 +88,6 @@ export default function SearchEvents({ events }) {
           </button>
         </div>
 
-        {/* Category Pills */}
         <div className="flex flex-wrap gap-2 mt-4">
           {categories.map((cat) => (
             <button
@@ -95,11 +111,29 @@ export default function SearchEvents({ events }) {
           No events found.
         </p>
       ) : (
-        <div className="px-6 md:px-0 grid md:grid-cols-3 gap-6">
-          {filteredEvents.map((event) => (
-            <EventCard key={event._id} event={event} />
-          ))}
-        </div>
+        <>
+          <div className="px-6 md:px-0 grid md:grid-cols-3 gap-6">
+            {currentEvents.map((event) => (
+              <EventCard key={event._id} event={event} />
+            ))}
+          </div>
+
+          {/* ✅ Pagination Buttons (No Design Changed Above) */}
+          <div className="flex justify-center mt-10 gap-2">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`px-4 py-2 rounded border cursor-pointer ${currentPage === index + 1
+                  ? "bg-black text-white"
+                  : "bg-white text-black"
+                  }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

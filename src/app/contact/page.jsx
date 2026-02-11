@@ -1,21 +1,23 @@
 "use client";
 
 import React from "react";
+import PageBanner from "../components/shared/PageBanner";
 
 const Page = () => {
   return (
-    <div className="lg:w-4/5 mx-auto min-h-screen px-6 pt-40 pb-20">
+    <div className="lg:w-4/5 mx-auto px-4 pt-32 lg:pt-48 pb-20">
       {/* Page Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900">Contact Us</h1>
-        <p className="text-gray-600 mt-2">
-          We’d love to hear about your event or inquiry
-        </p>
+      <div className="mb-12">
+        <PageBanner
+          subtitle="Get In Touch"
+          title="Contact Us"
+        />
       </div>
+
 
       <div className="grid md:grid-cols-2 gap-10">
         {/* Contact Form */}
-        <form className="bg-white rounded-xl shadow-md hover:shadow-xl transition p-8 space-y-5">
+        <form className="bg-white rounded shadow-md border border-neutral-200 hover:shadow-xl transition p-8 space-y-5">
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-1">
               Name
@@ -58,7 +60,7 @@ const Page = () => {
         </form>
 
         {/* Contact Info */}
-        <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition p-8 space-y-6">
+        <div className="bg-white rounded shadow-md border border-neutral-200 hover:shadow-xl transition p-8 space-y-6">
           <h2 className="text-2xl font-bold text-gray-900">
             Get in Touch
           </h2>

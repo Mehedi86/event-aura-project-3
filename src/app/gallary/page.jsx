@@ -2,26 +2,37 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiSolidLike } from "react-icons/bi";
+import Loading from "../loading";
+import PageBanner from "../components/shared/PageBanner";
 
 const Page = () => {
   const [selectedImage, setSelectedImage] = useState(null)
+  const [isLoading, setIsLoading] = useState(true);
   const { data: session, status } = useSession();
-
-
   const router = useRouter();
+
+  // ✅ Pagination States
+  const [currentPage, setCurrentPage] = useState(1);
+  const imagesPerPage = 6; // You can change this
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleLikeBtn = (e) => {
     e.stopPropagation();
-    // console.log(status)
     if (status === 'authenticated') {
       console.log('you can react here')
+      return;
     }
-    console.log('the user are not authenticated')
     router.push('/login')
   }
-
-
 
   const images = [
     "/img/recent/recent1.jpg",
@@ -39,19 +50,39 @@ const Page = () => {
     "/img/categories/wedding.jpg",
   ];
 
-  return (
-    <div className="lg:w-4/5 mx-auto min-h-screen px-6 py-40">
-      <h1 className="text-4xl font-bold text-center mb-12">Gallery</h1>
+  // ✅ Pagination Logic
+  const indexOfLastImage = currentPage * imagesPerPage;
+  const indexOfFirstImage = indexOfLastImage - imagesPerPage;
+  const currentImages = images.slice(indexOfFirstImage, indexOfLastImage);
+  const totalPages = Math.ceil(images.length / imagesPerPage);
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {images.map((src, idx) => (
+  if (isLoading) {
+    return <Loading />
+  }
+
+  return (
+    <div className="lg:w-4/5 mx-auto px-4 pt-32 lg:pt-48 pb-20">
+      <div className="mb-12">
+        <PageBanner
+          subtitle="Event Highlights"
+          title="Our Gallery"
+        />
+      </div>
+
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {currentImages.map((src, idx) => (
           <div
             key={idx}
-            className="relative overflow-hidden rounded-lg shadow-lg group cursor-pointer"
+            className="relative overflow-hidden rounded shadow-lg group cursor-pointer"
             onClick={() => setSelectedImage(src)}
           >
-            <div className="absolute bottom-2 left-10 text-neutral-200 flex items-center gap-2 z-50">
-              <BiSolidLike onClick={(e) => handleLikeBtn(e)} size={24} className="hover:scale-150 cursor-pointer transition transform duration-300" />
+            <div className="absolute bottom-2 left-10 text-neutral-200 flex items-center gap-2 z-1">
+              <BiSolidLike
+                onClick={(e) => handleLikeBtn(e)}
+                size={24}
+                className="hover:scale-150 cursor-pointer transition transform duration-300"
+              />
               <h1 className="font-bold text-xl">10</h1>
             </div>
             <img
@@ -63,6 +94,22 @@ const Page = () => {
               <span className="text-white font-semibold text-lg">View</span>
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* ✅ Pagination Buttons (Design untouched above) */}
+      <div className="flex justify-center mt-10 gap-2">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentPage(index + 1)}
+            className={`px-4 py-2 rounded border cursor-pointer ${currentPage === index + 1
+              ? "bg-black text-white"
+              : "bg-white text-black"
+              }`}
+          >
+            {index + 1}
+          </button>
         ))}
       </div>
 
