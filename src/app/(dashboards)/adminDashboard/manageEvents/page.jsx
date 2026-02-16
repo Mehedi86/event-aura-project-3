@@ -220,9 +220,9 @@ export default function ManageEvents() {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
+      <div className="md:flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Manage Events</h1>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-2 md:mt-0">
           <button onClick={exportToCSV} className="btn btn-outline gap-2">
             <FaDownload /> Export CSV
           </button>

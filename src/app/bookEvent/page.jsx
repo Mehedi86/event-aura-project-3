@@ -339,6 +339,7 @@ import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import PageBanner from "../components/shared/PageBanner";
 
 
 export default function BookEvent() {
@@ -434,160 +435,167 @@ export default function BookEvent() {
 
   return (
     <div className="lg:w-4/5 mx-auto px-4 pt-40 pb-20">
-  <div className="grid lg:grid-cols-3 gap-8">
-
-    {/* LEFT: FORM */}
-    <div className="lg:col-span-2 bg-white rounded border border-neutral-200 p-8 space-y-8">
-
-      {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">Book an Event</h1>
-        <p className="text-gray-500 mt-1">
-          Fill the details below. Approval usually takes 24 hours.
-        </p>
+      <div className="mb-12">
+        <PageBanner
+          subtitle="Reserve Your Spot"
+          title="Book an Event"
+        />
       </div>
 
-      {/* Organizer */}
-      <div className="space-y-4">
-        <h3 className="font-semibold text-gray-800">Organizer</h3>
+      <div className="grid lg:grid-cols-3 gap-8">
 
-        <div className="grid md:grid-cols-2 gap-4">
-          <input
-            type="text"
-            value={session.user.name}
-            disabled
-            className="input input-bordered bg-gray-100"
-          />
+        {/* LEFT: FORM */}
+        <div className="lg:col-span-2 bg-white rounded border border-neutral-200 p-8 space-y-8">
 
-          <input
-            type="email"
-            value={session.user.email}
-            disabled
-            className="input input-bordered bg-gray-100"
-          />
+          {/* Header */}
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">Book an Event</h1>
+            <p className="text-gray-500 mt-1">
+              Fill the details below. Approval usually takes 24 hours.
+            </p>
+          </div>
 
-          <input
-            type="tel"
-            name="organizerPhone"
-            value={form.organizerPhone}
-            onChange={handleChange}
-            placeholder="Phone number *"
-            className="input input-bordered"
-            required
-          />
+          {/* Organizer */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-gray-800">Organizer</h3>
 
-          <input
-            type="text"
-            name="organizerAddress"
-            value={form.organizerAddress}
-            onChange={handleChange}
-            placeholder="Address *"
-            className="input input-bordered"
-            required
-          />
+            <div className="grid md:grid-cols-2 gap-4">
+              <input
+                type="text"
+                value={session.user.name}
+                disabled
+                className="input input-bordered bg-gray-100"
+              />
+
+              <input
+                type="email"
+                value={session.user.email}
+                disabled
+                className="input input-bordered bg-gray-100"
+              />
+
+              <input
+                type="tel"
+                name="organizerPhone"
+                value={form.organizerPhone}
+                onChange={handleChange}
+                placeholder="Phone number *"
+                className="input input-bordered"
+                required
+              />
+
+              <input
+                type="text"
+                name="organizerAddress"
+                value={form.organizerAddress}
+                onChange={handleChange}
+                placeholder="Address *"
+                className="input input-bordered"
+                required
+              />
+            </div>
+          </div>
+
+          {/* Event */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-gray-800">Event details</h3>
+
+            <select
+              name="eventCategory"
+              value={form.eventCategory}
+              onChange={handleChange}
+              className="select select-bordered w-full"
+              required
+            >
+              <option value="">Select category *</option>
+              <option>SPORTS</option>
+              <option>ANNUAL PARTY</option>
+              <option>PRODUCT LAUNCH</option>
+              <option>PRESENTATION</option>
+              <option>SEMINAR</option>
+              <option>WEDDING</option>
+            </select>
+
+            <input
+              type="text"
+              name="proposedEventName"
+              value={form.proposedEventName}
+              onChange={handleChange}
+              placeholder="Event name *"
+              className="input input-bordered w-full"
+              required
+            />
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <input
+                type="date"
+                name="proposedEventDate"
+                value={form.proposedEventDate}
+                onChange={handleChange}
+                min={new Date().toISOString().split("T")[0]}
+                className="input input-bordered"
+                required
+              />
+
+              <input
+                type="time"
+                name="proposedEventTime"
+                value={form.proposedEventTime}
+                onChange={handleChange}
+                className="input input-bordered"
+                required
+              />
+            </div>
+
+            <input
+              type="text"
+              name="venue"
+              value={form.venue}
+              onChange={handleChange}
+              placeholder="Venue *"
+              className="input input-bordered w-full"
+              required
+            />
+
+            <textarea
+              name="additionalNotes"
+              value={form.additionalNotes}
+              onChange={handleChange}
+              rows={3}
+              placeholder="Additional notes (optional)"
+              className="textarea textarea-bordered w-full"
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Event */}
-      <div className="space-y-4">
-        <h3 className="font-semibold text-gray-800">Event details</h3>
+        {/* RIGHT: SUMMARY / HELP */}
+        <div className="bg-gray-50 rounded p-6 space-y-4 sticky top-40 h-fit">
+          <h3 className="font-semibold text-gray-800">Booking summary</h3>
 
-        <select
-          name="eventCategory"
-          value={form.eventCategory}
-          onChange={handleChange}
-          className="select select-bordered w-full"
-          required
-        >
-          <option value="">Select category *</option>
-          <option>SPORTS</option>
-          <option>ANNUAL PARTY</option>
-          <option>PRODUCT LAUNCH</option>
-          <option>PRESENTATION</option>
-          <option>SEMINAR</option>
-          <option>WEDDING</option>
-        </select>
+          <div className="text-sm text-gray-600 space-y-2">
+            <p><span className="font-medium">Category:</span> {form.eventCategory || "—"}</p>
+            <p><span className="font-medium">Event:</span> {form.proposedEventName || "—"}</p>
+            <p><span className="font-medium">Date:</span> {form.proposedEventDate || "—"}</p>
+            <p><span className="font-medium">Time:</span> {form.proposedEventTime || "—"}</p>
+            <p><span className="font-medium">Venue:</span> {form.venue || "—"}</p>
+          </div>
 
-        <input
-          type="text"
-          name="proposedEventName"
-          value={form.proposedEventName}
-          onChange={handleChange}
-          placeholder="Event name *"
-          className="input input-bordered w-full"
-          required
-        />
+          <div className="pt-4 border-t text-sm text-gray-500">
+            Status will be <span className="font-semibold text-amber-600">Pending</span> until approved.
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
-          <input
-            type="date"
-            name="proposedEventDate"
-            value={form.proposedEventDate}
-            onChange={handleChange}
-            min={new Date().toISOString().split("T")[0]}
-            className="input input-bordered"
-            required
-          />
-
-          <input
-            type="time"
-            name="proposedEventTime"
-            value={form.proposedEventTime}
-            onChange={handleChange}
-            className="input input-bordered"
-            required
-          />
+          <button
+            type="submit"
+            disabled={loading}
+            onClick={handleSubmit}
+            className="w-full mt-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-3 rounded-lg"
+          >
+            {loading ? "Submitting..." : "Submit booking"}
+          </button>
         </div>
 
-        <input
-          type="text"
-          name="venue"
-          value={form.venue}
-          onChange={handleChange}
-          placeholder="Venue *"
-          className="input input-bordered w-full"
-          required
-        />
-
-        <textarea
-          name="additionalNotes"
-          value={form.additionalNotes}
-          onChange={handleChange}
-          rows={3}
-          placeholder="Additional notes (optional)"
-          className="textarea textarea-bordered w-full"
-        />
       </div>
     </div>
-
-    {/* RIGHT: SUMMARY / HELP */}
-    <div className="bg-gray-50 rounded p-6 space-y-4 sticky top-40 h-fit">
-      <h3 className="font-semibold text-gray-800">Booking summary</h3>
-
-      <div className="text-sm text-gray-600 space-y-2">
-        <p><span className="font-medium">Category:</span> {form.eventCategory || "—"}</p>
-        <p><span className="font-medium">Event:</span> {form.proposedEventName || "—"}</p>
-        <p><span className="font-medium">Date:</span> {form.proposedEventDate || "—"}</p>
-        <p><span className="font-medium">Time:</span> {form.proposedEventTime || "—"}</p>
-        <p><span className="font-medium">Venue:</span> {form.venue || "—"}</p>
-      </div>
-
-      <div className="pt-4 border-t text-sm text-gray-500">
-        Status will be <span className="font-semibold text-amber-600">Pending</span> until approved.
-      </div>
-
-      <button
-        type="submit"
-        disabled={loading}
-        onClick={handleSubmit}
-        className="w-full mt-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-3 rounded-lg"
-      >
-        {loading ? "Submitting..." : "Submit booking"}
-      </button>
-    </div>
-
-  </div>
-</div>
 
   );
 }

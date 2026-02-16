@@ -132,12 +132,12 @@ export default function ActivityLogs() {
       log.user?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       log.target?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       log.details?.toLowerCase().includes(searchTerm.toLowerCase());
-    
+
     const matchesAction = actionFilter === 'all' || log.action === actionFilter;
-    
+
     const matchesDate = !dateFilter || (log.timestamp &&
       new Date(log.timestamp).toISOString().split('T')[0] === dateFilter);
-    
+
     return matchesSearch && matchesAction && matchesDate;
   });
 
@@ -151,9 +151,9 @@ export default function ActivityLogs() {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
+      <div className="md:flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Activity Logs</h1>
-        <button onClick={exportToCSV} className="btn btn-outline gap-2">
+        <button onClick={exportToCSV} className="btn btn-outline gap-2 mt-2 md:mt-0">
           <FaDownload /> Export CSV
         </button>
       </div>
@@ -236,9 +236,12 @@ export default function ActivityLogs() {
                       <td>
                         <div className="flex items-center gap-2">
                           {getActionIcon(log.action)}
-                          <span className={`badge ${getActionBadge(log.action)}`}>
+                          <span
+                            className={`badge ${getActionBadge(log.action)} w-36 flex justify-center items-center text-center`}
+                          >
                             {formatAction(log.action)}
                           </span>
+
                         </div>
                       </td>
                       <td className="font-medium">{log.user}</td>

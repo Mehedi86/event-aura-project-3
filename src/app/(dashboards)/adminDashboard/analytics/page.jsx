@@ -116,9 +116,9 @@ export default function Analytics() {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
+      <div className="md:flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Reports & Analytics</h1>
-        <button onClick={exportReport} className="btn btn-outline gap-2">
+        <button onClick={exportReport} className="btn btn-outline gap-2 mt-2 md:mt-0">
           <FaDownload /> Export Report
         </button>
       </div>

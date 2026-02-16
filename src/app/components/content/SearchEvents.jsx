@@ -112,7 +112,7 @@ export default function SearchEvents({ events }) {
         </p>
       ) : (
         <>
-          <div className="px-6 md:px-0 grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {currentEvents.map((event) => (
               <EventCard key={event._id} event={event} />
             ))}

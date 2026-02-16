@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { 
-  FaUsers, FaCalendarCheck, FaChartLine, FaDollarSign, 
+import {
+  FaUsers, FaCalendarCheck, FaChartLine, FaDollarSign,
   FaArrowUp, FaArrowDown, FaClock, FaExclamationTriangle,
   FaCheckCircle, FaTimesCircle, FaEye, FaDownload
 } from 'react-icons/fa';
@@ -60,7 +60,7 @@ export default function AdminDashboard() {
         return bookingDate.getTime() === today.getTime();
       }).length;
 
-      const approvalRate = bookings.length > 0 
+      const approvalRate = bookings.length > 0
         ? ((bookings.filter(b => b.bookingStatus === 'Approved').length / bookings.length) * 100).toFixed(1)
         : 0;
 
@@ -120,13 +120,13 @@ export default function AdminDashboard() {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
+      <div className="md:flex justify-between items-center mb-6">
         <div>
           <h1 className="text-3xl font-bold text-gray-800">Dashboard Overview</h1>
           <p className="text-gray-600 mt-1">Welcome back! Here's what's happening today.</p>
         </div>
         <div className="flex gap-2">
-          <button className="btn btn-outline gap-2">
+          <button className="btn btn-outline gap-2 mt-2 md:mt-0">
             <FaDownload /> Export Report
           </button>
         </div>
