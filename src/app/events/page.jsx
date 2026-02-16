@@ -6,8 +6,9 @@ import Link from "next/link";
 import PageBanner from "../components/shared/PageBanner";
 
 export default async function Events({ searchParams }) {
-
-    const page = parseInt(searchParams?.page) || 1;
+    
+    const eventSearchParams = await searchParams;
+    const page = parseInt(eventSearchParams?.page) || 1;
     const limit = 6; // events per page
 
     const eventCollection = dbConnect("eventBookings");
